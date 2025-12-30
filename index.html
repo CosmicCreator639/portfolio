@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K1NG_DUCKY | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<style> :root {
+	--bg: #02040a;
+	--glass: rgba(46, 204, 113, 0.03);
+	--glass-border: rgba(46, 204, 113, 0.2);
+	--accent: #2ecc71;
+	--accent-glow: #2ef383;
+	--text: #e2e8f0;
+	--online: #22c55e;
+	--offline: #64748b;
+	--discord-blurple: #5865F2;
+	--font-main: 'Montserrat', sans-serif;
+	--xylon-accent: #2ecc71;
+}
+
+/* --- LOADING SCREEN STYLES --- */
+#loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--bg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 99999;
+	transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.loader-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	font-family: 'Minecraft', sans-serif;
+}
+
+.loader-circle {
+	width: 60px;
+	height: 60px;
+	border: 3px solid rgba(46, 204, 113, 0.1);
+	border-top: 3px solid var(--accent);
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+	margin-bottom: 20px;
+	box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.loader-text {
+	color: var(--accent);
+	letter-spacing: 3px;
+	font-size: 1rem;
+	text-transform: uppercase;
+	animation: pulse-text 1.5s infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes pulse-text {
+
+	0%,
+	100% {
+		opacity: 1;
+		text-shadow: 0 0 10px var(--accent);
+	}
+
+	50% {
+		opacity: 0.3;
+	}
+}
+
+.experience-container {
+	position: relative;
+	max-width: 800px;
+	margin: 60px auto 100px;
+	padding-left: 30px;
+}
+
+.experience-container::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 2px;
+	background: linear-gradient(to bottom, var(--accent), transparent);
+	box-shadow: 0 0 15px var(--accent);
+}
+
+.experience-item {
+	position: relative;
+	margin-bottom: 40px;
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid var(--glass-border);
+	border-radius: 15px;
+	padding: 25px;
+	transition: 0.4s ease;
+}
+
+.experience-item:hover {
+	background: rgba(46, 204, 113, 0.05);
+	border-color: var(--accent);
+	transform: translateX(10px);
+}
+
+.experience-item::after {
+	content: '';
+	position: absolute;
+	left: -36px;
+	top: 30px;
+	width: 12px;
+	height: 12px;
+	background: var(--bg);
+	border: 2px solid var(--accent);
+	border-radius: 50%;
+	box-shadow: 0 0 10px var(--accent);
+}
+
+/* Stats Grid Layout */
+.stats-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
+	margin-top: 40px;
+}
+
+.stat-card {
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid var(--glass-border);
+	border-radius: 12px;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	transition: 0.3s ease;
+}
+
+.stat-card:hover {
+	border-color: var(--accent);
+	background: rgba(46, 204, 113, 0.08);
+	transform: translateY(-5px);
+}
+
+.stat-icon {
+	font-size: 2rem;
+	color: var(--accent);
+	text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.stat-value {
+	font-family: 'Minecraft', sans-serif;
+	font-size: 1.4rem;
+	color: #fff;
+	display: block;
+}
+
+.stat-label {
+	font-size: 0.7rem;
+	color: #94a3b8;
+	text-transform: uppercase;
+	font-weight: 800;
+}
+
+/* Experience Logo Styling */
+.exp-content-wrapper {
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
+}
+
+.exp-stats {
+	display: flex;
+	gap: 15px;
+	margin-top: 15px;
+	padding-top: 10px;
+	border-top: 1px solid rgba(46, 204, 113, 0.1);
+}
+
+.exp-stats span {
+	font-size: 0.7rem;
+	font-weight: 700;
+	color: var(--accent);
+	background: rgba(46, 204, 113, 0.05);
+	padding: 4px 8px;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.exp-stats i {
+	font-size: 0.8rem;
+	filter: drop-shadow(0 0 5px var(--accent-glow));
+}
+
+/* Responsive tweak */
+@media (max-width: 500px) {
+	.exp-stats {
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+}
+
+.exp-logo {
+	flex-shrink: 0;
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
+	border: 1px solid var(--glass-border);
+	background: rgba(46, 204, 113, 0.05);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.exp-logo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.exp-details {
+	flex-grow: 1;
+}
+
+.exp-content-wrapper {
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
+}
+
+.exp-logo {
+	flex-shrink: 0;
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
+	border: 1px solid var(--glass-border);
+	background: rgba(46, 204, 113, 0.05);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	box-shadow: 0 0 10px rgba(46, 204, 113, 0.1);
+}
+
+.exp-logo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.exp-details {
+	flex-grow: 1;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+	.exp-content-wrapper {
+		flex-direction: column;
+		gap: 15px;
+	}
+}
+
+.exp-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.exp-title {
+	font-family: 'Minecraft', sans-serif;
+	font-size: 1.2rem;
+	color: #fff;
+}
+
+.exp-date {
+	font-size: 0.7rem;
+	font-weight: 800;
+	color: var(--accent);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.exp-role {
+	display: inline-block;
+	font-size: 0.75rem;
+	background: rgba(46, 204, 113, 0.15);
+	color: var(--accent);
+	padding: 4px 10px;
+	border-radius: 5px;
+	margin-bottom: 15px;
+	font-weight: 700;
+}
+
+.exp-desc {
+	font-size: 0.9rem;
+	color: #94a3b8;
+	line-height: 1.6;
+}
+
+/* --- UPDATED CUSTOM CURSOR STYLES --- */
+* {
+	cursor: none !important;
+}
+
+#cursor-dot {
+	width: 8px;
+	height: 8px;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
+	z-index: 10000;
+	pointer-events: none;
+	box-shadow: 0 0 15px var(--accent-glow);
+}
+
+#cursor-outline {
+	width: 30px;
+	height: 30px;
+	border: 2px solid var(--accent);
+	position: fixed;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
+	z-index: 9999;
+	pointer-events: none;
+	transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+		height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+		background 0.4s, border-color 0.4s;
+}
+
+.cursor-hover #cursor-outline {
+	width: 50px;
+	height: 50px;
+	background: rgba(46, 204, 113, 0.15);
+	border-color: #fff;
+}
+
+.cursor-clicking #cursor-outline {
+	width: 15px !important;
+	height: 15px !important;
+	border-color: #fff !important;
+	background: var(--accent) !important;
+}
+
+/* --- HYPER-HOLOGRAPHIC SCROLLBAR --- */
+::-webkit-scrollbar {
+	width: 14px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--bg);
+	border-left: 1px solid var(--glass-border);
+	background-image: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(46, 204, 113, 0.03) 1px, rgba(46, 204, 113, 0.03) 2px);
+}
+
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(180deg, var(--accent) 0%, var(--accent-glow) 50%, var(--accent) 100%);
+	border: 2px solid var(--bg);
+	border-radius: 20px;
+	box-shadow: 0 0 10px var(--accent), inset 0 0 5px #fff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #fff;
+	box-shadow: 0 0 20px var(--accent-glow), 0 0 40px var(--accent), inset 0 0 10px #fff;
+}
+
+body {
+	font-family: var(--font-main);
+	background-color: var(--bg);
+	color: var(--text);
+	margin: 0;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+}
+
+header {
+	position: relative;
+	padding: 120px 20px 40px;
+	text-align: center;
+	background-image: linear-gradient(to bottom, rgba(2, 4, 10, 0.2) 0%, var(--bg) 95%), url('https://cdn.discordapp.com/banners/1045022710956298260/4ac93d1f58a54447011e8957db4258b2.webp?size=1024');
+	background-size: cover;
+	background-position: center;
+	border-bottom: 1px solid var(--glass-border);
+}
+
+.profile-wrapper {
+	position: relative;
+	display: inline-block;
+	z-index: 2;
+}
+
+#profile-pic {
+	width: 115px;
+	height: 115px;
+	border-radius: 50%;
+	border: 2px solid var(--accent);
+	padding: 4px;
+	background: var(--bg);
+	backdrop-filter: blur(10px);
+	box-shadow: 0 0 25px rgba(46, 204, 113, 0.3);
+}
+
+.profile-header {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	margin-bottom: 30px;
+}
+
+.status-label {
+	font-size: 0.65rem;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	color: #94a3b8;
+	font-weight: 800;
+}
+
+.activity-detail {
+	font-size: 0.9rem;
+	color: #e2e8f0;
+	margin-top: 4px;
+}
+
+.activity-detail strong {
+	color: var(--accent);
+	text-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* Discord Activity Container */
+.discord-activity {
+	margin: 20px 0;
+	display: flex;
+	justify-content: center;
+}
+
+.activity-flex {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	/* The "Indentation" gap */
+	background: rgba(46, 204, 113, 0.03);
+	padding: 15px 25px;
+	border-radius: 16px;
+	border: 1px solid rgba(46, 204, 113, 0.1);
+	min-width: 320px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.activity-icon-container {
+	position: relative;
+	flex-shrink: 0;
+}
+
+#activity-icon {
+	width: 60px;
+	height: 60px;
+	border-radius: 12px;
+	object-fit: cover;
+}
+
+#activity-small-icon {
+	position: absolute;
+	bottom: -5px;
+	right: -5px;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	border: 3px solid #02040a;
+	background: #02040a;
+}
+
+.activity-text-wrapper {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	/* Aligns all text next to the icon */
+}
+
+.activity-time {
+	font-size: 0.75rem;
+	color: #64748b;
+	margin-top: 4px;
+}
+
+/* Spotify Progress */
+#spotify-progress-container {
+	width: 100%;
+	height: 4px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 2px;
+	margin-top: 8px;
+	overflow: hidden;
+}
+
+#spotify-progress-bar {
+	height: 100%;
+	background: #1db954;
+	/* Spotify Green */
+	width: 0%;
+	transition: width 1s linear;
+}
+
+.status-indicator {
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	border: 4px solid var(--bg);
+	background: var(--offline);
+	transition: 0.3s;
+}
+
+h1 {
+	font-family: 'Minecraft', sans-serif;
+	font-size: 3.5rem;
+	margin: 20px 0 10px;
+	color: #fff;
+	text-shadow: 0 0 15px rgba(46, 204, 113, 0.8);
+}
+
+.social-links {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	margin-top: 15px;
+	flex-wrap: wrap;
+}
+
+.social-pill {
+	position: relative;
+	/* Essential for tooltip positioning */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	background: rgba(2, 4, 10, 0.6);
+	border: 1px solid var(--glass-border);
+	border-radius: 12px;
+	color: var(--text);
+	transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	backdrop-filter: blur(10px);
+	text-decoration: none;
+}
+
+/* --- NEW SOCIAL TOOLTIP STYLES --- */
+.social-tag {
+	position: absolute;
+	top: 55px;
+	left: 50%;
+	transform: translateX(-50%) translateY(-10px);
+	background: rgba(2, 4, 10, 0.95);
+	color: #fff;
+	padding: 6px 12px;
+	border-radius: 6px;
+	font-size: 0.65rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	white-space: nowrap;
+	border: 1px solid var(--accent);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	z-index: 100;
+}
+
+.social-pill:hover .social-tag {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+}
+
+.social-pill:hover {
+	transform: translateY(-5px);
+	border-color: var(--accent);
+	box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
+}
+
+.social-pill.github:hover {
+	background: #24292e;
+	color: #fff;
+	border-color: #fff;
+}
+
+.social-pill.modrinth:hover {
+	background: #161b22;
+	border-color: #1bd96a;
+}
+
+.social-pill.youtube:hover {
+	background: #ff0000;
+	color: #fff;
+	border-color: #fff;
+}
+
+.social-pill.namemc:hover {
+	background: #121212;
+	border-color: #fff;
+}
+
+.social-pill.builtbybit:hover {
+	background: #2D87C3;
+	border-color: #fff;
+}
+
+.social-pill.discord:hover {
+	background: #5865f2;
+	color: #fff;
+	border-color: #fff;
+}
+
+.namemc-icon {
+	width: 26px;
+	height: 26px;
+	border-radius: 4px;
+	transition: 0.3s;
+}
+
+.bbb-icon {
+	width: 24px;
+	height: 24px;
+	object-fit: contain;
+	transition: 0.3s;
+}
+
+.skills-banner {
+	position: relative;
+	padding: 80px 20px;
+	margin: 40px 0;
+	background: radial-gradient(circle at center, rgba(46, 204, 113, 0.05) 0%, transparent 70%);
+	overflow: visible;
+}
+
+.skills-banner::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: linear-gradient(var(--glass-border) 1px, transparent 1px), linear-gradient(90deg, var(--glass-border) 1px, transparent 1px);
+	background-size: 40px 40px;
+	opacity: 0.1;
+	mask-image: radial-gradient(ellipse at center, black, transparent 80%);
+	pointer-events: none;
+}
+
+.skills-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 20px;
+	max-width: 1000px;
+	margin: 40px auto 0;
+	padding: 0 20px;
+}
+
+.skill-card {
+	position: relative;
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+	border: 1px solid var(--glass-border);
+	padding: 30px 15px;
+	border-radius: 12px;
+	backdrop-filter: blur(10px);
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+}
+
+.skill-card::before {
+	content: attr(data-desc);
+	position: absolute;
+	bottom: 110%;
+	left: 50%;
+	transform: translateX(-50%) translateY(10px);
+	background: rgba(2, 4, 10, 0.95);
+	color: #fff;
+	padding: 10px 15px;
+	border-radius: 8px;
+	font-size: 0.75rem;
+	width: 180px;
+	text-align: center;
+	border: 1px solid var(--accent);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(46, 204, 113, 0.2);
+	opacity: 0;
+	pointer-events: none;
+	transition: 0.3s ease;
+	z-index: 100;
+	line-height: 1.4;
+}
+
+.skill-card:hover::before {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+}
+
+.skill-card::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	background: var(--accent);
+	box-shadow: 0 0 15px var(--accent);
+	transition: 0.4s ease;
+	transform: translateX(-50%);
+}
+
+.skill-card:hover {
+	border-color: var(--accent);
+	background: rgba(46, 204, 113, 0.1);
+	transform: translateY(-10px) scale(1.05);
+}
+
+.skill-card:hover::after {
+	width: 80%;
+}
+
+.skill-card i {
+	font-size: 2.5rem;
+	color: var(--accent);
+	filter: drop-shadow(0 0 8px var(--accent));
+	transition: 0.3s;
+}
+
+.skill-card:hover i {
+	transform: scale(1.2);
+	filter: drop-shadow(0 0 15px var(--accent-glow));
+	color: #fff;
+}
+
+.skill-card span {
+	display: block;
+	font-size: 0.7rem;
+	font-weight: 800;
+	letter-spacing: 2.5px;
+	color: var(--accent);
+	text-transform: uppercase;
+	opacity: 0.8;
+}
+
+.custom-logo {
+	width: 40px;
+	height: 40px;
+	object-fit: contain;
+	filter: invert(56%) sepia(82%) saturate(415%) hue-rotate(100deg) brightness(95%) contrast(85%);
+	transition: 0.3s;
+}
+
+.skill-card:hover .custom-logo {
+	transform: scale(1.2);
+	filter: brightness(0) invert(1) drop-shadow(0 0 15px var(--accent-glow));
+}
+
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 40px 20px;
+}
+
+.project-section-label {
+	font-size: 1.2rem;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 8px;
+	color: var(--accent-glow);
+	text-shadow: 0 0 15px rgba(46, 243, 131, 0.6), 0 0 30px rgba(46, 243, 131, 0.3);
+	margin-bottom: 55px;
+	display: block;
+	text-align: center;
+}
+
+.project-card {
+	position: relative;
+	width: 100%;
+	border-radius: 20px;
+	overflow: hidden;
+	border: 1px solid rgba(46, 204, 113, 0.2);
+	background: #0a0f18;
+	transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-card:hover {
+	transform: translateY(-5px) scale(1.01);
+	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(46, 204, 113, 0.2);
+	border-color: var(--xylon-accent);
+}
+
+.project-banner {
+	height: 250px;
+	background: url('https://media.discordapp.net/attachments/1343643236949954653/1451638610074927134/image.png?ex=6954bf0e&is=69536d8e&hm=ca2910d9a7f9a53ff701cc1408f8a87995ece7689c7e500bc77903fa8ccaffa2&=&format=webp&quality=lossless&width=1636&height=856') center/cover;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@keyframes logo-pulse {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.05);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+.project-logo-overlay {
+	width: 180px;
+	z-index: 2;
+	filter: drop-shadow(0 0 10px rgba(46, 204, 113, 0.4)) drop-shadow(0 0 25px rgba(46, 204, 113, 0.2)) drop-shadow(0 0 40px rgba(46, 204, 113, 0.1));
+	transition: 0.4s ease;
+	animation: logo-pulse 3s ease-in-out infinite;
+}
+
+.project-card:hover .project-logo-overlay {
+	filter: drop-shadow(0 0 15px rgba(46, 204, 113, 0.6)) drop-shadow(0 0 35px rgba(46, 204, 113, 0.3));
+	transform: scale(1.1);
+	animation-play-state: paused;
+}
+
+.project-banner::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 70%;
+	background: linear-gradient(to top, #0a0f18, transparent);
+}
+
+.project-content {
+	padding: 35px;
+	position: relative;
+}
+
+.live-badge {
+	position: absolute;
+	top: -20px;
+	right: 35px;
+	background: var(--bg);
+	border: 1px solid var(--xylon-accent);
+	padding: 10px 18px;
+	border-radius: 30px;
+	font-size: 0.65rem;
+	font-weight: 800;
+	color: var(--xylon-accent);
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	box-shadow: 0 0 20px rgba(46, 204, 113, 0.2);
+	backdrop-filter: blur(10px);
+}
+
+.pulse-dot {
+	width: 8px;
+	height: 8px;
+	background: var(--online);
+	border-radius: 50%;
+	position: relative;
+}
+
+.pulse-dot::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: var(--online);
+	animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+	0% {
+		transform: scale(1);
+		opacity: 0.7;
+	}
+
+	100% {
+		transform: scale(3.5);
+		opacity: 0;
+	}
+}
+
+.project-content h3 {
+	font-size: 2rem;
+	margin: 0 0 12px;
+	color: #fff;
+	letter-spacing: 1px;
+}
+
+.project-content p {
+	color: #94a3b8;
+	line-height: 1.7;
+	margin-bottom: 30px;
+	font-size: 0.95rem;
+}
+
+.action-row {
+	display: flex;
+	gap: 15px;
+	flex-wrap: wrap;
+	margin-bottom: 35px;
+}
+
+.btn-uplink {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	padding: 14px 28px;
+	background: rgba(88, 101, 242, 0.1);
+	color: var(--discord-blurple);
+	text-decoration: none;
+	border-radius: 12px;
+	font-weight: 800;
+	font-size: 0.8rem;
+	letter-spacing: 2px;
+	transition: all 0.4s ease;
+	border: 1px solid var(--discord-blurple);
+	position: relative;
+	overflow: hidden;
+	backdrop-filter: blur(5px);
+	box-shadow: 0 0 15px rgba(88, 101, 242, 0.2);
+}
+
+.btn-uplink:hover {
+	background: var(--discord-blurple);
+	color: #fff;
+	transform: translateY(-3px);
+	box-shadow: 0 0 30px rgba(88, 101, 242, 0.4);
+	border-color: #fff;
+}
+
+.regional-network-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 15px;
+	margin-bottom: 30px;
+}
+
+.region-card {
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(46, 204, 113, 0.1);
+	border-radius: 16px;
+	padding: 15px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+.region-card:hover {
+	background: rgba(46, 204, 113, 0.05);
+	border-color: var(--accent);
+	transform: translateY(-4px);
+}
+
+.region-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+.region-tag {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 0.7rem;
+	font-weight: 800;
+	color: #fff;
+}
+
+.region-tag img {
+	width: 18px;
+	border-radius: 2px;
+}
+
+.ping-pill {
+	font-size: 0.6rem;
+	color: var(--accent);
+	font-weight: 700;
+}
+
+.ip-recessed-box {
+	background: #02040a;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	padding: 8px 10px;
+	border-radius: 8px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	transition: 0.3s;
+}
+
+.ip-recessed-box code {
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 0.75rem;
+	color: var(--accent);
+	opacity: 0.9;
+}
+
+.ip-recessed-box i {
+	font-size: 0.7rem;
+	opacity: 0.3;
+}
+
+.region-card:hover .ip-recessed-box {
+	border-color: rgba(46, 204, 113, 0.3);
+}
+
+.region-card.copied .ip-recessed-box {
+	background: var(--accent);
+}
+
+.region-card.copied .ip-recessed-box code,
+.region-card.copied .ip-recessed-box i {
+	color: #000;
+	opacity: 1;
+}
+
+.stats-row {
+	display: flex;
+	gap: 30px;
+	padding-top: 20px;
+	border-top: 1px solid rgba(46, 204, 113, 0.1);
+}
+
+.stat-box {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.stat-label {
+	font-size: 0.6rem;
+	color: rgba(46, 204, 113, 0.6);
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	font-weight: 700;
+}
+
+.stat-value {
+	font-size: 1.1rem;
+	color: #fff;
+	font-weight: 800;
+	text-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+}
+
+@media (max-width: 768px) {
+	.regional-network-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+</style>
+<body>
+
+<div id="loader">
+    <div class="loader-content">
+        <div class="loader-circle"></div>
+        <div class="loader-text">LOADING WEBSITE</div>
+    </div>
+</div>
+
+<div id="cursor-dot"></div>
+<div id="cursor-outline"></div>
+
+<header>
+    <div class="profile-wrapper">
+        <img id="profile-pic" src="https://cdn.discordapp.com/avatars/1045022710956298260/ae3a7b0809f1d6bc5379a12be45c7cb9.webp?size=1024" alt="Avatar">
+        <div class="status-indicator" id="status-dot"></div>
+    </div>
+    
+    <h1>K1NG_DUCKY</h1>
+
+    <div class="discord-activity">
+    <div class="activity-flex">
+        <div class="activity-icon-container">
+            <img id="activity-icon" src="" style="display: none;" alt="App Icon">
+            <img id="activity-small-icon" src="" style="display: none;" alt="Small Icon">
+        </div>
+        
+        <div class="activity-text-wrapper">
+            <div id="status-text" class="status-label">FETCHING STATUS...</div>
+            <div id="activity-detail" class="activity-detail"></div>
+            <div id="activity-time" class="activity-time"></div>
+            
+            <div id="spotify-progress-container" style="display: none;">
+                <div id="spotify-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="social-links">
+        <a href="https://github.com/CosmicCreator639" target="_blank" class="social-pill github">
+            <i class="fa-brands fa-github"></i>
+            <span class="social-tag">CosmicCreator639</span>
+        </a>
+        
+        <a href="https://modrinth.com/user/cosmic.creator" target="_blank" class="social-pill modrinth">
+            <img src="https://raw.githubusercontent.com/gabrielvicenteYT/modrinth-icons/a05e2307b42762d64a370a3cf3e8b6b30735dce1/Branding/Mark/mark-dark.svg" class="custom-logo" style="width: 24px; height: 24px;">
+            <span class="social-tag">cosmic.creator</span>
+        </a>
+        
+        <a href="https://www.youtube.com/@K1NG_DUCKY_MC" target="_blank" class="social-pill youtube">
+            <i class="fa-brands fa-youtube"></i>
+            <span class="social-tag">@K1NG_DUCKY_MC</span>
+        </a>
+        
+        <a href="https://builtbybit.com/members/cosmiccreator.520961/" target="_blank" class="social-pill builtbybit">
+            <img src="https://i.ibb.co/Lj3k9kf/icon-blue.png" class="bbb-icon" alt="BuiltByBit">
+            <span class="social-tag">CosmicCreator</span>
+        </a>
+        
+        <a href="https://namemc.com/profile/K1NG_DUCKY" target="_blank" class="social-pill namemc">
+            <img src="https://mc-heads.net/avatar/K1NG_DUCKY/100" class="namemc-icon" alt="NameMC">
+            <span class="social-tag">K1NG_DUCKY</span>
+        </a>
+        
+        <a href="https://discord.com/users/1045022710956298260" target="_blank" class="social-pill discord">
+            <i class="fa-brands fa-discord"></i>
+            <span class="social-tag">cosmic.creator</span>
+        </a>
+    </div>
+</header>
+
+<div class="skills-banner">
+    <span class="project-section-label">CORE SKILLS</span>
+    
+    <div style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
+        <h2 style="font-family: 'Minecraft', sans-serif; font-size: 2.2rem; color: #fff; margin-bottom: 15px; text-shadow: 0 0 10px var(--accent);">ABOUT ME</h2>
+        <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; letter-spacing: 0.5px;">
+            Check out my core skills below. Hover over any icon for a quick breakdown of my experience.
+        </p>
+    </div>
+
+    <div class="skills-container">
+        <div class="skill-card" data-desc="Minecraft plugin Development | Discord Bot Development"><i class="fa-brands fa-java"></i><span>Java</span></div>
+        <div class="skill-card" data-desc="3D Modeling, and texturing for blocks, entities, icons and more!">
+            <img src="https://www.blockbench.net/images/logos/blockbench_inverted.png" class="custom-logo" alt="Blockbench">
+            <span>Blockbench</span>
+        </div>
+        <div class="skill-card" data-desc="Discord Bot Development"><i class="fa-brands fa-python"></i><span>Python</span></div>
+        <div class="skill-card" data-desc="Creating high-quality Minecraft item and block textures."><i class="fa-solid fa-palette"></i><span>PIXEL ART</span></div>
+        <div class="skill-card" data-desc="Modern ui websites, like this portfolio."><i class="fa-solid fa-code"></i><span>HTML / CSS</span></div>
+    </div>
+</div>
+
+<div class="container">
+    <span class="project-section-label">CURRENT PROJECTS</span>
+    
+    <div class="project-card">
+        <div class="project-banner">
+            <img src="https://cdn.discordapp.com/icons/1342228444573864006/69b1af329d6a9770a636963044afa8a4.webp?size=1024" class="project-logo-overlay" alt="Xylon Logo">
+        </div>
+
+        <div class="project-content">
+            <div class="live-badge">
+                <div class="pulse-dot"></div>
+                <span id="live-status-text">SYNCING...</span>
+            </div>
+            
+            <h3>XylonFFA</h3>
+            <p>A global competitive FFA network delivering a high-performance experience across optimized regional nodes designed for the lowest latency possible.</p>
+            
+            <div class="action-row">
+                <a href="https://discord.gg/bvV7Hz9W5P" target="_blank" class="btn-uplink">
+                    <i class="fa-brands fa-discord"></i>
+                    <span>JOIN DISCORD</span>
+                </a>
+            </div>
+
+            <div class="regional-network-grid">
+                <div class="region-card" onclick="copyIP('as.xylon.gg', this)">
+                    <div class="region-header">
+                        <div class="region-tag">
+                            <img src="https://flagcdn.com/w20/sg.png" alt="AS">
+                            <div style="display: flex; flex-direction: column;">
+                                <span>ASIA (AS)</span>
+                                <span style="font-size: 0.55rem; opacity: 0.6; font-weight: 400; letter-spacing: 0.5px;">Singapore</span>
+                            </div>
+                        </div>
+                        <span class="ping-pill"><i class="fa-solid fa-signal"></i> 24ms</span>
+                    </div>
+                    <div class="ip-recessed-box">
+                        <code>as.xylon.gg</code>
+                        <i class="fa-solid fa-copy"></i>
+                    </div>
+                </div>
+
+                <div class="region-card" onclick="copyIP('eu.xylon.gg', this)">
+                    <div class="region-header">
+                        <div class="region-tag">
+                            <img src="https://flagcdn.com/w20/de.png" alt="EU">
+                            <div style="display: flex; flex-direction: column;">
+                                <span>EUROPE (EU)</span>
+                                <span style="font-size: 0.55rem; opacity: 0.6; font-weight: 400; letter-spacing: 0.5px;">Frankfurt, DE</span>
+                            </div>
+                        </div>
+                        <span class="ping-pill"><i class="fa-solid fa-signal"></i> 12ms</span>
+                    </div>
+                    <div class="ip-recessed-box">
+                        <code>eu.xylon.gg</code>
+                        <i class="fa-solid fa-copy"></i>
+                    </div>
+                </div>
+
+                <div class="region-card" onclick="copyIP('na.xylon.gg', this)">
+                    <div class="region-header">
+                        <div class="region-tag">
+                            <img src="https://flagcdn.com/w20/us.png" alt="NA">
+                            <div style="display: flex; flex-direction: column;">
+                                <span>NORTH AMERICA (NA)</span>
+                                <span style="font-size: 0.55rem; opacity: 0.6; font-weight: 400; letter-spacing: 0.5px;">North America</span>
+                            </div>
+                        </div>
+                        <span class="ping-pill"><i class="fa-solid fa-signal"></i> 18ms</span>
+                    </div>
+                    <div class="ip-recessed-box">
+                        <code>na.xylon.gg</code>
+                        <i class="fa-solid fa-copy"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-box">
+                    <span class="stat-label">Role Position</span>
+                    <span class="stat-value" style="color: var(--accent);">Developer</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Total Users</span>
+                    <span class="stat-value" id="stat-total">--</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Online</span>
+                    <span class="stat-value" id="stat-online">--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fab fa-discord stat-icon"></i>
+                <div class="stat-info">
+                    <span class="stat-value">250</span>
+                    <span class="stat-label">Discord Members</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-users"></i>
+                <div class="stat-info">
+                    <span class="stat-value">1.2k+</span>
+                    <span class="stat-label">Unique Players</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-bolt"></i>
+                <div class="stat-info">
+                    <span class="stat-value">32 </span>
+                    <span class="stat-label">Online Peak</span>
+                </div>
+            </div>
+        </div>
+
+        <span class="project-section-label" style="margin-top: 60px;">PAST EXPERIENCES</span>
+
+        <div class="experience-container">
+            
+            <div class="experience-item">
+                <div class="exp-content-wrapper">
+                    <div class="exp-logo">
+                        <img src="https://i.ibb.co/qqNrxHb/Main-Logo.png" alt="Logo">
+                    </div>
+                    <div class="exp-details">
+                        <div class="exp-header">
+                            <span class="exp-title">BoxClash Network</span>
+                            <span class="exp-date">Oct 2024 - Nov 2025</span>
+                        </div>
+                        <span class="exp-role">Network Owner</span>
+                        <p class="exp-desc"></p>
+                        <div class="exp-stats">
+                            <span><i class="fab fa-discord"></i> 250+</span>
+                            <span><i class="fa-solid fa-users"></i> 1.2k+ Unique Players
+                            <span><i class="fa-solid fa-bolt"></i> 32 Online Peak</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<script>
+    // --- EMERGENCY LOADER KILLER ---
+    // If the loader is still there after 4 seconds, force it to hide
+    setTimeout(() => {
+        const loader = document.getElementById("loader");
+        if (loader && loader.style.visibility !== "hidden") {
+            loader.style.opacity = "0";
+            setTimeout(() => { loader.style.visibility = "hidden"; }, 800);
+        }
+    }, 4000);
+
+    // --- COPY IP LOGIC ---
+    function copyIP(text, element) {
+        if (!navigator.clipboard) return;
+        navigator.clipboard.writeText(text).then(() => {
+            element.classList.add('copied');
+            const codeEl = element.querySelector('code');
+            if (codeEl) {
+                const originalText = codeEl.innerText;
+                codeEl.innerText = "COPIED!";
+                setTimeout(() => {
+                    element.classList.remove('copied');
+                    codeEl.innerText = originalText;
+                }, 2000);
+            }
+        });
+    }
+
+    // --- LOADER LOGIC ---
+    window.addEventListener("load", () => {
+        const loader = document.getElementById("loader");
+        if (loader) {
+            setTimeout(() => {
+                loader.style.opacity = "0";
+                setTimeout(() => { loader.style.visibility = "hidden"; }, 800);
+            }, 1000);
+        }
+    });
+
+    const userID = "1045022710956298260";
+    const projectInvite = "bvV7Hz9W5P";
+
+    // --- CURSOR LOGIC ---
+    const cursorDot = document.getElementById("cursor-dot");
+    const cursorOutline = document.getElementById("cursor-outline");
+    let mouseX = 0, mouseY = 0, dotX = 0, dotY = 0, outlineX = 0, outlineY = 0;
+
+    window.addEventListener("mousemove", (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+    window.addEventListener("mousedown", () => document.body.classList.add("cursor-clicking"));
+    window.addEventListener("mouseup", () => document.body.classList.remove("cursor-clicking"));
+
+    function animate() {
+        if(cursorDot) {
+            dotX += (mouseX - dotX) * 0.2; dotY += (mouseY - dotY) * 0.2;
+            cursorDot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+        }
+        if(cursorOutline) {
+            outlineX += (mouseX - outlineX) * 0.1; outlineY += (mouseY - outlineY) * 0.1;
+            cursorOutline.style.transform = `translate(${outlineX}px, ${outlineY}px) translate(-50%, -50%)`;
+        }
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    document.querySelectorAll("a, .skill-card, .project-card, .social-pill, .region-card, .experience-item").forEach(el => {
+        el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
+        el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover"));
+    });
+
+    // --- REFRESH DATA LOGIC ---
+    async function refreshHologram() {
+        // 1. Lanyard Discord Status & Activity
+        try {
+            const lanyardRes = await fetch(`https://api.lanyard.rest/v1/users/${userID}`);
+            const res = await lanyardRes.json();
+            
+            if (res && res.success) {
+                const data = res.data;
+                const status = data.discord_status;
+                const dot = document.getElementById('status-dot');
+                const label = document.getElementById('status-text');
+                const detail = document.getElementById('activity-detail');
+                const timeEl = document.getElementById('activity-time');
+                const icon = document.getElementById('activity-icon');
+                const smallIcon = document.getElementById('activity-small-icon');
+                const spotifyBar = document.getElementById('spotify-progress-bar');
+                const spotifyCont = document.getElementById('spotify-progress-container');
+
+                // Reset Visibility
+                if(icon) icon.style.display = "none";
+                if(smallIcon) smallIcon.style.display = "none";
+                if(spotifyCont) spotifyCont.style.display = "none";
+                if(timeEl) timeEl.innerText = "";
+
+                // Update Dot
+                const colors = { online: '#22c55e', idle: '#eab308', dnd: '#ef4444', offline: '#64748b' };
+                if(dot) {
+                    const statusColor = colors[status] || colors.offline;
+                    dot.style.background = statusColor;
+                    dot.style.boxShadow = `0 0 15px ${statusColor}aa`;
+                }
+
+                if (status === 'offline') {
+                    if(label) label.innerText = "Offline";
+                    if(detail) detail.innerText = "Currently away";
+                } else {
+                    const game = data.activities ? data.activities.find(act => act.type === 0) : null;
+                    
+                    // Case: Playing a Game
+                    if (game) {
+                        if(label) label.innerText = "Currently Playing";
+                        if(detail) detail.innerHTML = `<strong>${game.name}</strong>`;
+                        if(icon) {
+                            icon.style.display = "block";
+                            icon.src = game.assets?.large_image 
+                                ? (game.assets.large_image.startsWith('mp:external') 
+                                    ? game.assets.large_image.replace(/mp:external\/.*\/https\//, 'https://') 
+                                    : `https://cdn.discordapp.com/app-assets/${game.application_id}/${game.assets.large_image}.png`)
+                                : `https://lanyard.rest/api/assets/${game.application_id}`;
+                        }
+                        if(game.assets?.small_image && smallIcon) {
+                            smallIcon.style.display = "block";
+                            smallIcon.src = `https://cdn.discordapp.com/app-assets/${game.application_id}/${game.assets.small_image}.png`;
+                        }
+                        if(game.timestamps?.start && timeEl) {
+                            const elapsed = Math.floor((Date.now() - game.timestamps.start) / 1000 / 60);
+                            timeEl.innerText = `${elapsed}m elapsed`;
+                        }
+                    } 
+                    // Case: Spotify
+                    else if (data.listening_to_spotify && data.spotify) {
+                        if(label) label.innerText = "Listening to Spotify";
+                        const artistStr = data.spotify.artist ? ` by ${data.spotify.artist}` : "";
+                        if(detail) detail.innerHTML = `<strong>${data.spotify.track}</strong>${artistStr}`;
+                        
+                        if(icon) {
+                            icon.style.display = "block";
+                            icon.src = data.spotify.album_art_url;
+                        }
+                        if(spotifyCont) spotifyCont.style.display = "block";
+                        if(spotifyBar) {
+                            const total = data.spotify.timestamps.end - data.spotify.timestamps.start;
+                            const current = Date.now() - data.spotify.timestamps.start;
+                            const progress = (current / total) * 100;
+                            spotifyBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+                        }
+                    } 
+                    // Case: Simple Online
+                    else {
+                        if(label) label.innerText = status.charAt(0).toUpperCase() + status.slice(1);
+                        if(detail) detail.innerText = "No current activity";
+                    }
+                }
+            }
+        } catch (e) { console.error("Lanyard check failed"); }
+
+        // 2. Discord Invite Stats
+        try {
+            const inviteResponse = await fetch(`https://discord.com/api/v9/invites/${projectInvite}?with_counts=true`);
+            const inviteData = await inviteResponse.json();
+            if(inviteData && !inviteData.message) {
+                const onlineCount = inviteData.approximate_presence_count || 0;
+                const totalCount = inviteData.approximate_member_count || 0;
+                
+                const liveStatusText = document.getElementById('live-status-text');
+                if(liveStatusText) liveStatusText.innerText = `${onlineCount} ONLINE`;
+                
+                const statOnline = document.getElementById('stat-online');
+                if(statOnline) statOnline.innerText = onlineCount.toLocaleString();
+                
+                const statTotal = document.getElementById('stat-total');
+                if(statTotal) statTotal.innerText = totalCount.toLocaleString();
+            }
+        } catch (e) { console.error("Invite check failed"); }
+    }
+
+    refreshHologram();
+    setInterval(refreshHologram, 15000); // 15s refresh for better progress bar tracking
+</script>
+</body>
+</html>
