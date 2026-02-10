@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture • K1NG_DUCKY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-circle"></div>
+            <div class="loader-text">LOADING COLLECTION</div>
+        </div>
+    </div>
+
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
+
+    <div class="container" style="padding-top: 80px;">
+        
+        <a href="index.html" class="back-bubble">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>BACK TO HOME</span>
+        </a>
+
+        <header style="text-align: left; margin-bottom: 60px;">
+            <span class="project-section-label">COLLECTION</span>
+            <h1 style="margin: 10px 0;">3D BLOCKS</h1>
+            <p style="color: #94a3b8; max-width: 600px;">A collection of custom 3D walls, floors, pillars and terrain pieces. All designed in BlockBench</p>
+        </header>
+
+        <div class="model-grid">
+            
+            <div class="model-card reveal">
+                <div class="model-preview">
+                    <img src="https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/gallery/blocks/backrooms_bottom.png" alt="Backroom Tiles">
+                </div>
+                <div class="model-info">
+                    <h3>Backroom Tiles</h3>
+                    <p>Bottom tiled wall block from the backrooms</p>
+                    <div class="model-tags"><span>BACKROOMS</span><span>16x</span><span>BLOCK</span></div>
+                </div>
+            </div>
+
+            <div class="model-card reveal">
+                <div class="model-preview">
+                    <img src="https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/gallery/blocks/backrooms_middle.png" alt="Backrooms Wall">
+                </div>
+                <div class="model-info">
+                    <h3>Backrooms Wall</h3>
+                    <p>Wallpaper themed wall block from the backrooms.</p>
+                    <div class="model-tags"><span>BACKROOMS</span><span>16x</span><span>BLOCK</span></div>
+                </div>
+            </div>
+
+            <div class="model-card reveal">
+                <div class="model-preview">
+                    <img src="https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/gallery/blocks/backrooms_floor.png" alt="Backrooms Floor">
+                </div>
+                <div class="model-info">
+                    <h3>Backrooms Floor</h3>
+                    <p>The floor carpet block from the backrooms.</p>
+                    <div class="model-tags"><span>BACKROOMS</span><span>16x</span><span>BLOCK</span></div>
+                </div>
+            </div>
+
+            <div class="model-card reveal">
+                <div class="model-preview">
+                    <img src="https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/gallery/blocks/backrooms_poolroom_tiles.png" alt="Poolroom Floor Tiles">
+                </div>
+                <div class="model-info">
+                    <h3>Poolroom Floor Tiles</h3>
+                    <p>Poolroom themed tiles from the backrooms.</p>
+                    <div class="model-tags"><span>BACKROOMS</span><span>16x</span><span>BLOCK</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <script>
+        window.addEventListener("load", () => {
+            const loader = document.querySelector("#loader");
+            if (loader) {
+                loader.classList.add("loader-hidden");
+            }
+        });
+    </script>
+</body>
+</html>
