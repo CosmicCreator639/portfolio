@@ -486,7 +486,7 @@ header {
 	position: relative;
 	padding: 120px 20px 40px;
 	text-align: center;
-	background-image: linear-gradient(to bottom, rgba(2, 4, 10, 0.2) 0%, var(--bg) 95%), url('https://cdn.discordapp.com/avatars/1045022710956298260/ae3a7b0809f1d6bc5379a12be45c7cb9.webp?size=1024');
+	background-image: linear-gradient(to bottom, rgba(2, 4, 10, 0.2) 0%, var(--bg) 95%), url('assets/icons/Profile_Picture.png');
 	background-size: cover;
 	background-position: center;
 	border-bottom: 1px solid var(--glass-border);
@@ -901,7 +901,7 @@ h1 {
 
 .project-banner {
 	height: 250px;
-	background: url('https://cdn.discordapp.com/banners/1045022710956298260/05c712fc7613c0512a63bb3b37b6a94a.webp?size=1024') center/cover;
+	background: url('assets/backgrounds/Xylon_Banner.png') center/cover;
 	position: relative;
 	display: flex;
 	align-items: center;
