@@ -64,43 +64,90 @@ function initUI() {
     });
 }
 
-// --- 4. RELIABLE VIEW COUNTER LOGIC ---
+// --- 4. BULLETPROOF VIEW COUNTER (CounterAPI.dev + Fallback) ---
 async function updateViewCounters() {
     const totalEl = document.getElementById('total-views');
     const uniqueEl = document.getElementById('unique-views');
     const ns = CONFIG.counterNamespace;
+    const apiBase = "https://api.counterapi.dev/v1";
 
-    // Using countapi.it (A reliable mirror/alternative)
-    const apiBase = "https://api.countapi.it/hit";
-    const getBase = "https://api.countapi.it/get";
+    const getCache = (key) => localStorage.getItem(`cache_${key}`) || "---";
+    const setCache = (key, val) => localStorage.setItem(`cache_${key}`, val);
 
-    // Handle Total Views
-    try {
-        const res = await fetch(`${apiBase}/${ns}/total_visits`);
-        const data = await res.json();
-        if (totalEl) totalEl.innerText = (data.value || 0).toLocaleString();
-    } catch (e) {
-        if (totalEl) totalEl.innerText = "...";
+    async function handleCounter(key, storageKey, isUnique) {
+        const element = isUnique ? uniqueEl : totalEl;
+        if (!element) return;
+
+        try {
+            const alreadyHit = sessionStorage.getItem(storageKey);
+            const url = `${apiBase}/${ns}/${key}${alreadyHit ? '' : '/up'}`;
+
+            const res = await fetch(url);
+
+            if (res.status === 429) {
+                element.innerText = getCache(key);
+                return;
+            }
+
+            const data = await res.json();
+            if (data.count !== undefined) {
+                const displayVal = data.count.toLocaleString();
+                element.innerText = displayVal;
+                setCache(key, displayVal);
+                sessionStorage.setItem(storageKey, 'true');
+            }
+        } catch (e) {
+            element.innerText = getCache(key);
+        }
     }
 
-    // Handle Unique Views
+    await handleCounter("total_visits", "counted_session_total", false);
+    await handleCounter("unique_visitors", "kingducky_visited_unique", true);
+}
+
+// --- 11. GITHUB REPO UPDATE LOGIC (Relative Time) ---
+async function fetchLastUpdate() {
+    const updateEl = document.getElementById('last-update');
+    if (!updateEl) return;
+
+    const username = "CosmicCreator639";
+    const repo = "portfolio";
+
     try {
-        if (!localStorage.getItem('kingducky_visited_unique')) {
-            const res = await fetch(`${apiBase}/${ns}/unique_visitors`);
-            const data = await res.json();
-            if (uniqueEl) uniqueEl.innerText = (data.value || 0).toLocaleString();
-            localStorage.setItem('kingducky_visited_unique', 'true');
-        } else {
-            const res = await fetch(`${getBase}/${ns}/unique_visitors`);
-            const data = await res.json();
-            if (uniqueEl) uniqueEl.innerText = (data.value || 0).toLocaleString();
+        const response = await fetch(`https://api.github.com/repos/${username}/${repo}/commits/main`);
+        const data = await response.json();
+
+        if (data.commit && data.commit.author.date) {
+            const lastUpdate = new Date(data.commit.author.date);
+            updateEl.innerText = getTimeAgo(lastUpdate);
         }
     } catch (e) {
-        if (uniqueEl) uniqueEl.innerText = "...";
+        console.error("Failed to fetch update date");
+        updateEl.innerText = "Recently";
     }
 }
 
-// --- 5. COPY IP LOGIC ---
+function getTimeAgo(date) {
+    const seconds = Math.floor((new Date() - date) / 1000);
+
+    const intervals = {
+        month: 2592000,
+        week: 604800,
+        day: 86400,
+        hour: 3600,
+        minute: 60
+    };
+
+    for (let [name, value] of Object.entries(intervals)) {
+        const count = Math.floor(seconds / value);
+        if (count >= 1) {
+            return `${count} ${name}${count > 1 ? 's' : ''} ago`;
+        }
+    }
+    return "just now";
+}
+
+// --- 6. COPY IP LOGIC ---
 function copyIP(text, element) {
     if (!navigator.clipboard) return;
     navigator.clipboard.writeText(text).then(() => {
@@ -117,7 +164,7 @@ function copyIP(text, element) {
     });
 }
 
-// --- 6. CURSOR LOGIC ---
+// --- 7. CURSOR LOGIC ---
 const cursorDot = document.getElementById("cursor-dot");
 const cursorOutline = document.getElementById("cursor-outline");
 let mouseX = 0, mouseY = 0, dotX = 0, dotY = 0, outlineX = 0, outlineY = 0;
@@ -140,7 +187,7 @@ function animateCursor() {
     requestAnimationFrame(animateCursor);
 }
 
-// --- 7. TIMEZONE LOGIC ---
+// --- 8. TIMEZONE LOGIC ---
 function updateTime() {
     const myOptions = {
         timeZone: 'Europe/London',
@@ -165,8 +212,8 @@ function updateTime() {
     const userTimeEl = document.getElementById('user-local-time');
     const userZoneEl = document.getElementById('user-timezone-name');
     if (userTimeEl) {
-        userTimeEl.innerText = new Date().toLocaleTimeString('en-GB', { 
-            hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' 
+        userTimeEl.innerText = new Date().toLocaleTimeString('en-GB', {
+            hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit'
         });
     }
     if (userZoneEl) {
@@ -177,12 +224,12 @@ function updateTime() {
     }
 }
 
-// --- 8. REFRESH DATA LOGIC (LANYARD & DISCORD) ---
+// --- 9. REFRESH DATA LOGIC (LANYARD & DISCORD) ---
 async function refreshHologram() {
     try {
         const lanyardRes = await fetch(`https://api.lanyard.rest/v1/users/${CONFIG.userID}`);
         const res = await lanyardRes.json();
-        
+
         if (res && res.success) {
             const data = res.data;
             const status = data.discord_status;
@@ -220,15 +267,15 @@ async function refreshHologram() {
                 if(detail) detail.innerText = "Currently away";
             } else {
                 const game = data.activities ? data.activities.find(act => act.type === 0) : null;
-                
+
                 if (game) {
                     if(label) label.innerText = "Currently Playing";
                     if(detail) detail.innerHTML = `<strong>${game.name}</strong>`;
                     if(icon) {
                         icon.style.display = "block";
-                        icon.src = game.assets?.large_image 
-                            ? (game.assets.large_image.startsWith('mp:external') 
-                                ? game.assets.large_image.replace(/mp:external\/.*\/https\//, 'https://') 
+                        icon.src = game.assets?.large_image
+                            ? (game.assets.large_image.startsWith('mp:external')
+                                ? game.assets.large_image.replace(/mp:external\/.*\/https\//, 'https://')
                                 : `https://cdn.discordapp.com/app-assets/${game.application_id}/${game.assets.large_image}.png`)
                             : `https://lanyard.rest/api/assets/${game.application_id}`;
                     }
@@ -246,7 +293,7 @@ async function refreshHologram() {
                             timeEl.innerText = `${totalMinutes}m elapsed`;
                         }
                     }
-                } 
+                }
                 else if (data.listening_to_spotify && data.spotify) {
                     if(label) label.innerText = "Listening to Spotify";
                     if(detail) detail.innerHTML = `<strong>${data.spotify.track}</strong> by ${data.spotify.artist}`;
@@ -256,7 +303,7 @@ async function refreshHologram() {
                         const progress = ((Date.now() - data.spotify.timestamps.start) / (data.spotify.timestamps.end - data.spotify.timestamps.start)) * 100;
                         spotifyBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
                     }
-                } 
+                }
                 else {
                     if(label) label.innerText = status.charAt(0).toUpperCase() + status.slice(1);
                     if(detail) detail.innerText = "No current activity";
@@ -278,11 +325,11 @@ async function refreshHologram() {
     } catch (e) { console.error("Invite check failed"); }
 }
 
-// --- 9. CINEMATIC SCROLL REVEAL ---
+// --- 10. CINEMATIC SCROLL REVEAL ---
 function initScrollReveal() {
     const observerOptions = {
-        threshold: 0.1, 
-        rootMargin: "0px 0px -20px 0px" 
+        threshold: 0.1,
+        rootMargin: "0px 0px -20px 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -300,19 +347,20 @@ function initScrollReveal() {
     );
 
     itemsToReveal.forEach(el => {
-        el.classList.add('reveal'); 
+        el.classList.add('reveal');
         observer.observe(el);
     });
 }
 
-// --- 10. BOOT ---
+// --- BOOT ---
 window.addEventListener("DOMContentLoaded", () => {
     initUI();
     initLoader();
     animateCursor();
     updateTime();
     refreshHologram();
-    updateViewCounters(); 
+    updateViewCounters();
+    fetchLastUpdate(); // Added this to trigger on load
     initScrollReveal();
     
     setInterval(updateTime, 1000);
