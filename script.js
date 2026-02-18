@@ -352,6 +352,42 @@ function initScrollReveal() {
     });
 }
 
+// --- LANGUAGE SELECTOR ---
+const langPicker = document.getElementById('languagePicker');
+
+async function updateLanguage(lang) {
+    try {
+        const response = await fetch('./lang.json');
+        const translations = await response.json();
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                // Use innerHTML so the <b> tags in your descriptions still work
+                el.innerHTML = translations[lang][key];
+            }
+        });
+
+        // Save choice
+        localStorage.setItem('selectedLanguage', lang);
+    } catch (error) {
+        console.error("Could not load translations:", error);
+    }
+}
+
+if (langPicker) {
+    langPicker.addEventListener('change', (e) => updateLanguage(e.target.value));
+
+    // Auto-load saved lang on refresh
+    window.addEventListener('load', () => {
+        const saved = localStorage.getItem('selectedLanguage') || 'en';
+        langPicker.value = saved;
+        updateLanguage(saved);
+    });
+}
+
+
+
 // --- BOOT ---
 window.addEventListener("DOMContentLoaded", () => {
     initUI();
