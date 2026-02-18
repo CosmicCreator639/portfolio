@@ -1,4 +1,8 @@
 :root {
+    --exp-active: #22c55e;   /* Clean Green */
+    --exp-inactive: #ff4d4d; /* Bright Red */
+    --exp-role: #5865F2;     /* Discord Blue */
+    --exp-glow: rgba(0, 255, 157, 0.15); /* Box hover glow */
 	--bg: #02040a;
 	--glass: rgba(46, 204, 113, 0.03);
 	--glass-border: rgba(46, 204, 113, 0.2);
@@ -174,18 +178,6 @@
 	position: relative;
 	max-width: 800px;
 	margin: 60px auto 100px;
-	padding-left: 30px;
-}
-
-.experience-container::before {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	width: 2px;
-	background: linear-gradient(to bottom, var(--accent), transparent);
-	box-shadow: 0 0 15px var(--accent);
 }
 
 .experience-item {
@@ -204,18 +196,6 @@
 	transform: translateX(10px);
 }
 
-.experience-item::after {
-	content: '';
-	position: absolute;
-	left: -36px;
-	top: 30px;
-	width: 12px;
-	height: 12px;
-	background: var(--bg);
-	border: 2px solid var(--accent);
-	border-radius: 50%;
-	box-shadow: 0 0 10px var(--accent);
-}
 
 /* Stats Grid Layout */
 .stats-grid {
@@ -1642,4 +1622,142 @@ img {
 .footer-sub {
     color: #ffffff;
     opacity: 0.8; /* Makes the "Last updated:" part slightly faded white */
+}
+
+/* --- CONTAINER & GLASS BOX --- */
+.experience-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.experience-item {
+    display: flex;
+    position: relative;
+    padding-left: 45px; /* Space for the diamond nodes */
+    transition: all 0.3s ease;
+}
+
+.glass-box {
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(15px);
+    border-radius: 12px;
+    padding: 25px;
+    width: 100%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-box:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--exp-glow);
+}
+
+/* Node/Line Hover Effects */
+.experience-item:hover .track-node {
+    border-color: var(--exp-active);
+    box-shadow: 0 0 15px var(--exp-active);
+    background: var(--exp-active);
+    transform: rotate(45deg); /* Diamond shape */
+}
+
+.experience-item:hover .track-line {
+    background: linear-gradient(to bottom, var(--exp-active), transparent);
+}
+
+.experience-item:last-child .track-line {
+    display: none;
+}
+
+/* --- HEADER & BUBBLES --- */
+.exp-content-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.exp-title {
+    font-family: 'Minecraft', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.exp-date {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.exp-activity-group {
+    display: flex;
+    gap: 8px;
+}
+
+.bubble-tag {
+    padding: 5px 14px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+
+.bubble-tag.role {
+    color: var(--exp-role);
+    border-color: var(--exp-role);
+    background: rgba(88, 101, 242, 0.1);
+}
+
+.bubble-tag.status.active {
+    color: var(--exp-active);
+    border-color: var(--exp-active);
+    background: rgba(34, 197, 94, 0.08);
+}
+
+.bubble-tag.status.inactive {
+    color: var(--exp-inactive);
+    border-color: var(--exp-inactive);
+    background: rgba(255, 77, 77, 0.08);
+}
+
+/* --- CONTENT & STATS --- */
+.exp-description {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.exp-description b {
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(255,255,255,0.2);
+}
+
+.exp-stats-row {
+    display: flex;
+    gap: 12px;
+}
+
+.mini-stat {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
