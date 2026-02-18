@@ -14,440 +14,438 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="loader">
-        <div class="loader-content">
-            <div class="loader-terminal">
-                <span class="terminal-user">K1NG_DUCKY's PORTFOLIO</span>
-                <span class="terminal-msg">Loading website...</span>
-            </div>
-            <div class="loader-bar-container">
-                <div class="loader-bar-fill"></div>
-            </div>
-            <div class="loader-percentage">0%</div>
+<div id="loader">
+    <div class="loader-content">
+        <div class="loader-terminal">
+            <span class="terminal-user">K1NG_DUCKY's PORTFOLIO</span>
+            <span class="terminal-msg">Loading website...</span>
         </div>
-        <div class="loader-door door-left"></div>
-        <div class="loader-door door-right"></div>
+        <div class="loader-bar-container">
+            <div class="loader-bar-fill"></div>
+        </div>
+        <div class="loader-percentage">0%</div>
     </div>
-
-    <div id="cursor-dot"></div>
-    <div id="cursor-outline"></div>
-
-    <header>
-        <div class="view-counter">
-            <div class="counter-card" data-tooltip="Total Page Views">
-                <i class="fa-solid fa-eye"></i>
-                <span id="total-views">...</span>
-            </div>
-            <div class="counter-card" data-tooltip="Unique Visitors">
-                <i class="fa-solid fa-user-check"></i>
-                <span id="unique-views">...</span>
-            </div>
-        </div>
-
-        <div class="timezone-container">
-            <div class="time-card">
-                <label>MY TIME (BST)</label>
-                <div id="my-local-time" class="time-display">00:00:00</div>
-                <div id="my-time-status" class="time-sub">Fetching...</div>
-            </div>
-
-            <div class="time-separator"></div>
-
-            <div class="time-card">
-                <label>YOUR TIME</label>
-                <div id="user-local-time" class="time-display">00:00:00</div>
-                <div id="user-timezone-name" class="time-sub">Local</div>
-            </div>
-        </div>
-
-        <div class="profile-wrapper">
-            <img id="profile-pic" src="assets/icons/Profile_Picture.png" alt="Avatar" draggable="false">
-            <div class="status-indicator" id="status-dot"></div>
-        </div>
-
-        <h1>K1NG_DUCKY</h1>
-
-        <div class="discord-activity">
-            <div class="activity-flex">
-                <div class="activity-icon-container">
-                    <img id="activity-icon" src="" style="display: none;" alt="App Icon" draggable="false">
-                    <img id="activity-small-icon" src="" style="display: none;" alt="Small Icon" draggable="false">
-                </div>
-
-                <div class="activity-text-wrapper">
-                    <div id="status-text" class="status-label">FETCHING STATUS...</div>
-                    <div id="activity-detail" class="activity-detail"></div>
-                    <div id="activity-time" class="activity-time"></div>
-
-                    <div id="spotify-progress-container" style="display: none;">
-                        <div id="spotify-progress-bar"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="social-links">
-            <a href="https://github.com/CosmicCreator639" target="_blank" class="social-pill github">
-                <i class="fa-brands fa-github"></i>
-                <span class="social-tag">CosmicCreator639</span>
-            </a>
-
-            <a href="https://modrinth.com/user/cosmic.creator" target="_blank" class="social-pill modrinth">
-                <img src="https://raw.githubusercontent.com/gabrielvicenteYT/modrinth-icons/a05e2307b42762d64a370a3cf3e8b6b30735dce1/Branding/Mark/mark-dark.svg" class="custom-logo" style="width: 24px; height: 24px;">
-                <span class="social-tag">cosmic.creator</span>
-            </a>
-
-            <a href="https://www.youtube.com/@K1NG_DUCKY_MC" target="_blank" class="social-pill youtube">
-                <i class="fa-brands fa-youtube"></i>
-                <span class="social-tag">@K1NG_DUCKY_MC</span>
-            </a>
-
-            <a href="https://builtbybit.com/members/cosmiccreator.520961/" target="_blank" class="social-pill builtbybit">
-                <img src="https://i.ibb.co/Lj3k9kf/icon-blue.png" class="bbb-icon" alt="BuiltByBit">
-                <span class="social-tag">CosmicCreator</span>
-            </a>
-
-            <a href="https://namemc.com/profile/K1NG_DUCKY" target="_blank" class="social-pill namemc">
-                <img src="https://mc-heads.net/avatar/K1NG_DUCKY/100" class="namemc-icon" alt="NameMC">
-                <span class="social-tag">K1NG_DUCKY</span>
-            </a>
-
-            <a href="https://discord.com/users/1045022710956298260" target="_blank" class="social-pill discord">
-                <i class="fa-brands fa-discord"></i>
-                <span class="social-tag">cosmic.creator</span>
-            </a>
-        </div>
-    </header>
-
-    <div class="skills-banner">
-        <span class="project-section-label" data-i18n="core_skills">CORE SKILLS</span>
-
-        <div style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
-            <h2 data-i18n=about_me style="font-family: 'Minecraft', sans-serif; font-size: 2.2rem; color: #fff; margin-bottom: 15px;">ABOUT ME</h2>
-            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; letter-spacing: 0.5px;">
-                Check out my core skills below. Hover over any icon for a quick breakdown of my experience.
-            </p>
-        </div>
-
-        <div class="skills-container">
-            <div class="skill-card" data-desc="Minecraft plugin Development | Discord Bot Development"><i class="fa-brands fa-java"></i><span>Java</span></div>
-            <div class="skill-card" data-desc="3D Modeling for Minecraft items and entities.">
-                <img src="https://www.blockbench.net/images/logos/blockbench_inverted.png" class="custom-logo" alt="Blockbench" draggable="false">
-                <span>Blockbench</span>
-            </div>
-            <div class="skill-card" data-desc="Discord Bot Development"><i class="fa-brands fa-python"></i><span>Python</span></div>
-            <div class="skill-card" data-desc="Creating high-quality Minecraft item textures."><i class="fa-solid fa-palette"></i><span>PIXEL ART</span></div>
-            <div class="skill-card" data-desc="Modern UI design with clean code."><i class="fa-solid fa-code"></i><span>HTML / CSS</span></div>
-        </div>
-    </div>
-
-    <div class="container">
-        <span class="project-section-label">CURRENT PROJECTS</span>
-
-        <div class="project-card">
-            <div class="project-banner">
-                <img src="assets/icons/xylon_logo.png" class="project-logo-overlay" alt="Xylon Logo" draggable="false">
-            </div>
-
-            <div class="project-content">
-                <div class="live-badge">
-                    <div class="pulse-dot"></div>
-                    <span id="live-status-text">SYNCING...</span>
-                </div>
-
-                <h3>XylonFFA</h3>
-                <p>A global competitive FFA network delivering a high-performance experience across optimized regional nodes.</p>
-
-                <div class="action-row">
-                    <a href="https://discord.gg/bvV7Hz9W5P" target="_blank" class="btn-uplink">
-                        <i class="fa-brands fa-discord"></i>
-                        <span>JOIN DISCORD</span>
-                    </a>
-                </div>
-
-                <div class="regional-network-grid">
-                    <div class="region-card" onclick="copyIP('as.xylon.gg', this)">
-                        <div class="region-header">
-                            <div class="region-tag">
-                                <img src="https://flagcdn.com/w20/sg.png" alt="AS">
-                                <span>ASIA (AS)</span>
-                            </div>
-                        </div>
-                        <div class="ip-recessed-box">
-                            <code>as.xylon.gg</code>
-                            <i class="fa-solid fa-copy"></i>
-                        </div>
-                    </div>
-
-                    <div class="region-card" onclick="copyIP('eu.xylon.gg', this)">
-                        <div class="region-header">
-                            <div class="region-tag">
-                                <img src="https://flagcdn.com/w20/de.png" alt="EU">
-                                <span>EUROPE (EU)</span>
-                            </div>
-                        </div>
-                        <div class="ip-recessed-box">
-                            <code>eu.xylon.gg</code>
-                            <i class="fa-solid fa-copy"></i>
-                        </div>
-                    </div>
-
-                    <div class="region-card" onclick="copyIP('na.xylon.gg', this)">
-                        <div class="region-header">
-                            <div class="region-tag">
-                                <img src="https://flagcdn.com/w20/us.png" alt="NA">
-                                <span>NORTH AMERICA (NA)</span>
-                            </div>
-                        </div>
-                        <div class="ip-recessed-box">
-                            <code>na.xylon.gg</code>
-                            <i class="fa-solid fa-copy"></i>
-                        </div>
-                    </div>
-
-                    <div class="region-card" onclick="copyIP('au.xylon.gg', this)">
-                        <div class="region-header">
-                            <div class="region-tag">
-                                <img src="https://flagcdn.com/w20/au.png" alt="AU">
-                                <span>AUSTRALIA (AU)</span>
-                            </div>
-                        </div>
-                        <div class="ip-recessed-box">
-                            <code>au.xylon.gg</code>
-                            <i class="fa-solid fa-copy"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="stats-row">
-                    <div class="stat-box">
-                        <span class="stat-label">Role</span>
-                        <span class="stat-value">Developer</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-label">Total Users</span>
-                        <span id="stat-total" class="stat-value">--</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-label">Online</span>
-                        <span id="stat-online" class="stat-value">--</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-        <span class="project-section-label" style="margin-top: 60px;">BLOCKBENCH CREATIONS</span>
-        <div class="model-grid">
-
-            <a href="blocks.html" class="model-card category-card">
-                <div class="model-preview">
-                    <div class="category-banner" style="background-image: url('https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/backgrounds/checkered.png');"></div>
-                    <img src="assets/icons/blocks.png" class="category-featured-img" alt="Blocks" draggable="false">
-                </div>
-                <div class="model-info">
-                    <h3>Blocks</h3>
-                    <p>Custom 3D blocks for walls, floors & terrain!</p>
-                    <div class="model-tags"><span>16x Texture</span><span>Block</span></div>
-                </div>
-            </a>
-
-            <a href="furniture.html" class="model-card category-card">
-                <div class="model-preview">
-                    <div class="category-banner" style="background-image: url('https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/backgrounds/checkered.png');"></div>
-                    <img src="assets/gallery/furniture/dyable_brick_overhang.png" class="category-featured-img" alt="Blocks" draggable="false">
-                </div>
-                <div class="model-info">
-                    <h3>Furniture</h3>
-                    <p>Custom furniture created for servers!</p>
-                    <div class="model-tags"><span>16x Texture</span><span>Decorations</span></div>
-                </div>
-            </a>
-
-            <a href="cosmetics.html" class="model-card category-card">
-                <div class="model-preview">
-                    <div class="category-banner" style="background-image: url('https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/backgrounds/checkered.png');"></div>
-                    <img src="assets/icons/cosmetics.png" class="category-featured-img" alt="cosmetics" draggable="false">
-                </div>
-                <div class="model-info">
-                    <h3>Cosmetics</h3>
-                    <p>Hats, capes, and armor</p>
-                    <div class="model-tags"><span>Explore</span></div>
-                </div>
-            </a>
-
-            <a href="skins.html" class="model-card category-card">
-                <div class="model-preview">
-                    <div class="category-banner" style="background-image: url('https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/backgrounds/checkered.png');"></div>
-                    <img src="assets/icons/skins.png" class="category-featured-img" alt="Skins" draggable="false">
-                </div>
-                <div class="model-info">
-                    <h3>Skins</h3>
-                    <p>Player skins & variants</p>
-                    <div class="model-tags"><span>Explore</span></div>
-                </div>
-            </a>
-
-            <a href="entities.html" class="model-card category-card">
-                <div class="model-preview">
-                    <div class="category-banner" style="background-image: url('https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/backgrounds/checkered.png');"></div>
-                    <img src="assets/icons/entities.png" class="category-featured-img" alt="Entities" draggable="false">
-                </div>
-                <div class="model-info">
-                    <h3>Entities</h3>
-                    <p>Bosses, mobs, and NPCs</p>
-                    <div class="model-tags"><span>Explore</span></div>
-                </div>
-            </a>
-
-            <a class="model-card category-card">
-                <div class="model-preview">
-                    <div class="category-banner" style="background-image: url('https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/backgrounds/checkered.png');"></div>
-                    <img src="assets/icons/coming_soon.png" class="category-featured-img" alt="Coming Soon" draggable="false">
-                </div>
-                <div class="model-info">
-                    <h3>Misc</h3>
-                    <p>Particles, UI, and more</p>
-                    <div class="model-tags"><span>Unfinished</span></div>
-                </div>
-            </a>
+    <div class="loader-door door-left"></div>
+    <div class="loader-door door-right"></div>
 </div>
 
-<span class="project-section-label" style="margin-top: 60px;">SERVER HOSTING</span>
+<div id="cursor-dot"></div>
+<div id="cursor-outline"></div>
 
-<div class="project-card" style="padding-bottom: 0; overflow: hidden;">
-    <div class="project-banner" style="background: #0ea5e9; position: relative; overflow: hidden; height: 180px;">
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://www.kinetichosting.com/_next/image?url=%2Fbackgrounds%2Fwebsite-home.webp&w=1200&q=75'); background-size: cover; background-position: center;"></div>
-        <div class="gradient-flow" style="position: absolute; top: 0; left: 0; width: 300%; height: 100%; background: linear-gradient(90deg, rgba(14, 165, 233, 0.8) 0%, rgba(139, 92, 246, 0.4) 50%, rgba(14, 165, 233, 0.8) 100%); animation: flowGradient 8s linear infinite; z-index: 1;"></div>
-        <img src="https://www.kinetichosting.com/logos/logo.svg" class="project-logo-overlay" alt="Kinetic Logo" style="z-index: 2; width: 220px; filter: drop-shadow(0 0 15px rgba(0,0,0,0.6));" draggable="false">
-    </div>
-
-    <div class="project-content">
-        <div class="live-badge" style="background: rgba(14, 165, 233, 0.15); border: 1px solid #0ea5e9; box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);">
-            <div class="pulse-dot" style="background: #0ea5e9; box-shadow: 0 0 10px #0ea5e9; animation: bluePulse 2s infinite;"></div>
-            <span style="color: #0ea5e9; font-weight: 700;">RECOMMENDED</span>
+<header>
+    <div class="view-counter">
+        <div class="counter-card" data-tooltip="Total Page Views">
+            <i class="fa-solid fa-eye"></i>
+            <span id="total-views">...</span>
         </div>
-
-        <h3>Kinetic & Eternal Hosting</h3>
-        <p>I recommend KineticHost for their high-performance hardware and amazing uptime. It's the only host I've used that has good uptime and no problems at all. I've used three 4GB budget servers for about 2-3 months now and they haven't had a single issue. For those in Asia, Eternal Hosting is the best choice for routing and speed.</p>
-
-        <div class="action-row" style="gap: 12px;">
-            <a href="https://kinetichosting.net" target="_blank" class="btn-uplink" style="border-color: #0ea5e9; background: rgba(14, 165, 233, 0.05);">
-                <i class="fa-solid fa-server" style="color: #0ea5e9;"></i>
-                <span>VISIT KINETIC</span>
-            </a>
-            <a href="https://eternalhosting.net" target="_blank" class="btn-uplink" style="border-color: #22c55e; background: rgba(34, 197, 94, 0.05);">
-                <i class="fa-solid fa-globe" style="color: #22c55e;"></i>
-                <span>VISIT ETERNAL</span>
-            </a>
+        <div class="counter-card" data-tooltip="Unique Visitors">
+            <i class="fa-solid fa-user-check"></i>
+            <span id="unique-views">...</span>
         </div>
     </div>
 
-    <div class="affiliate-tab" style="background: rgba(15, 23, 42, 0.6); border-top: 1px solid rgba(14, 165, 233, 0.2); padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <p style="margin: 0; color: #94a3b8; font-size: 0.85rem; max-width: 450px;">
-                <strong>Kinetic</strong> is best for <strong>EU/NA</strong>. <strong>Eternal</strong> is best for <strong>Asia</strong>. Use the link to support my friend who is affiliated with them!
-            </p>
+    <div class="timezone-container">
+        <div class="time-card">
+            <label>MY TIME (BST)</label>
+            <div id="my-local-time" class="time-display">00:00:00</div>
+            <div id="my-time-status" class="time-sub">Fetching...</div>
         </div>
 
-        <a href="https://billing.kinetichosting.com/aff.php?aff=1183" target="_blank" class="btn-uplink" style="background: #0ea5e9; color: #fff; border: none; margin: 0; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);">
-            <i class="fa-solid fa-up-right-from-square"></i>
-            <span>SUPPORT FRIEND</span>
+        <div class="time-separator"></div>
+
+        <div class="time-card">
+            <label>YOUR TIME</label>
+            <div id="user-local-time" class="time-display">00:00:00</div>
+            <div id="user-timezone-name" class="time-sub">Local</div>
+        </div>
+    </div>
+
+    <div class="profile-wrapper">
+        <img id="profile-pic" src="assets/icons/Profile_Picture.png" alt="Avatar" draggable="false">
+        <div class="status-indicator" id="status-dot"></div>
+    </div>
+
+    <h1>K1NG_DUCKY</h1>
+
+    <div class="discord-activity">
+        <div class="activity-flex">
+            <div class="activity-icon-container">
+                <img id="activity-icon" src="" style="display: none;" alt="App Icon" draggable="false">
+                <img id="activity-small-icon" src="" style="display: none;" alt="Small Icon" draggable="false">
+            </div>
+
+            <div class="activity-text-wrapper">
+                <div id="status-text" class="status-label">FETCHING STATUS...</div>
+                <div id="activity-detail" class="activity-detail"></div>
+                <div id="activity-time" class="activity-time"></div>
+
+                <div id="spotify-progress-container" style="display: none;">
+                    <div id="spotify-progress-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="social-links">
+        <a href="https://github.com/CosmicCreator639" target="_blank" class="social-pill github">
+            <i class="fa-brands fa-github"></i>
+            <span class="social-tag">CosmicCreator639</span>
+        </a>
+
+        <a href="https://modrinth.com/user/cosmic.creator" target="_blank" class="social-pill modrinth">
+            <img src="https://raw.githubusercontent.com/gabrielvicenteYT/modrinth-icons/a05e2307b42762d64a370a3cf3e8b6b30735dce1/Branding/Mark/mark-dark.svg" class="custom-logo" style="width: 24px; height: 24px;">
+            <span class="social-tag">cosmic.creator</span>
+        </a>
+
+        <a href="https://www.youtube.com/@K1NG_DUCKY_MC" target="_blank" class="social-pill youtube">
+            <i class="fa-brands fa-youtube"></i>
+            <span class="social-tag">@K1NG_DUCKY_MC</span>
+        </a>
+
+        <a href="https://builtbybit.com/members/cosmiccreator.520961/" target="_blank" class="social-pill builtbybit">
+            <img src="https://i.ibb.co/Lj3k9kf/icon-blue.png" class="bbb-icon" alt="BuiltByBit">
+            <span class="social-tag">CosmicCreator</span>
+        </a>
+
+        <a href="https://namemc.com/profile/K1NG_DUCKY" target="_blank" class="social-pill namemc">
+            <img src="https://mc-heads.net/avatar/K1NG_DUCKY/100" class="namemc-icon" alt="NameMC">
+            <span class="social-tag">K1NG_DUCKY</span>
+        </a>
+
+        <a href="https://discord.com/users/1045022710956298260" target="_blank" class="social-pill discord">
+            <i class="fa-brands fa-discord"></i>
+            <span class="social-tag">cosmic.creator</span>
         </a>
     </div>
+</header>
+
+<div class="skills-banner">
+    <span class="project-section-label" data-i18n="core_skills">CORE SKILLS</span>
+
+    <div style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
+        <h2 data-i18n="about_me" style="font-family: 'Minecraft', sans-serif; font-size: 2.2rem; color: #fff; margin-bottom: 15px;">ABOUT ME</h2>
+        <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; letter-spacing: 0.5px;">
+            Check out my core skills below. Hover over any icon for a quick breakdown of my experience.
+        </p>
+    </div>
+
+    <div class="skills-container">
+        <div class="skill-card" data-desc="Minecraft plugin Development | Discord Bot Development"><i class="fa-brands fa-java"></i><span>Java</span></div>
+        <div class="skill-card" data-desc="3D Modeling for Minecraft items and entities.">
+            <img src="https://www.blockbench.net/images/logos/blockbench_inverted.png" class="custom-logo" alt="Blockbench" draggable="false">
+            <span>Blockbench</span>
+        </div>
+        <div class="skill-card" data-desc="Discord Bot Development"><i class="fa-brands fa-python"></i><span>Python</span></div>
+        <div class="skill-card" data-desc="Creating high-quality Minecraft item textures."><i class="fa-solid fa-palette"></i><span>PIXEL ART</span></div>
+        <div class="skill-card" data-desc="Modern UI design with clean code."><i class="fa-solid fa-code"></i><span>HTML / CSS</span></div>
+    </div>
 </div>
 
-<style>
-@keyframes bluePulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(14, 165, 233, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
-}
+<div class="container">
+    <span class="project-section-label">CURRENT PROJECTS</span>
 
-@keyframes flowGradient {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-</style>
-        <span class="project-section-label" style="margin-top: 60px;">PAST EXPERIENCES</span>
+    <div class="project-card">
+        <div class="project-banner">
+            <img src="assets/icons/xylon_logo.png" class="project-logo-overlay" alt="Xylon Logo" draggable="false">
+        </div>
 
-        <div class="experience-container">
-            <div class="experience-item glass-box reveal">
-                <div class="exp-content-wrapper">
-                    <div class="exp-logo">
-                        <img src="https://i.ibb.co/qqNrxHb/Main-Logo.png" alt="BoxClash" draggable="false">
+        <div class="project-content">
+            <div class="live-badge">
+                <div class="pulse-dot"></div>
+                <span id="live-status-text">SYNCING...</span>
+            </div>
+
+            <h3>XylonFFA</h3>
+            <p>A global competitive FFA network delivering a high-performance experience across optimized regional nodes.</p>
+
+            <div class="action-row">
+                <a href="https://discord.gg/bvV7Hz9W5P" target="_blank" class="btn-uplink">
+                    <i class="fa-brands fa-discord"></i>
+                    <span>JOIN DISCORD</span>
+                </a>
+            </div>
+
+            <div class="regional-network-grid">
+                <div class="region-card" onclick="copyIP('as.xylon.gg', this)">
+                    <div class="region-header">
+                        <div class="region-tag">
+                            <img src="https://flagcdn.com/w20/sg.png" alt="AS">
+                            <span>ASIA (AS)</span>
+                        </div>
                     </div>
+                    <div class="ip-recessed-box">
+                        <code>as.xylon.gg</code>
+                        <i class="fa-solid fa-copy"></i>
+                    </div>
+                </div>
 
-                    <div class="exp-details">
-                        <div class="exp-header">
-                            <div class="exp-title-group">
-                                <h3 class="exp-title">BOXCLASH NETWORK</h3>
-                                <span class="exp-date">OCT 2024 — NOV 2025</span>
-                            </div>
-
-                            <div class="exp-activity-group">
-                                <span class="bubble-tag role">NETWORK OWNER</span>
-                                <span class="bubble-tag status active">
-                            <div class="pulse-dot-mini"></div>
-                            ACTIVE
-                        </span>
-                            </div>
+                <div class="region-card" onclick="copyIP('eu.xylon.gg', this)">
+                    <div class="region-header">
+                        <div class="region-tag">
+                            <img src="https://flagcdn.com/w20/de.png" alt="EU">
+                            <span>EUROPE (EU)</span>
                         </div>
+                    </div>
+                    <div class="ip-recessed-box">
+                        <code>eu.xylon.gg</code>
+                        <i class="fa-solid fa-copy"></i>
+                    </div>
+                </div>
 
-                        <p data-i18n="boxclash_desc" class="exp-description">
-                            Previously worked with Tro_o, and created the <b>BoxClash Network</b>. I handled everything from plugins to models, and unique features all the time, to keep our 1,200+ unique players coming back. Once a unique ChunkSMP server to a BoxSMP server with plenty of features for everyone to enjoy!
-                        </p>
-
-                        <div class="exp-stats-row">
-                            <div class="mini-stat"><i class="fab fa-discord"></i> 250+</div>
-                            <div class="mini-stat"><i class="fa-solid fa-users"></i> 1.2k+ Uniques</div>
+                <div class="region-card" onclick="copyIP('na.xylon.gg', this)">
+                    <div class="region-header">
+                        <div class="region-tag">
+                            <img src="https://flagcdn.com/w20/us.png" alt="NA">
+                            <span>NORTH AMERICA (NA)</span>
                         </div>
+                    </div>
+                    <div class="ip-recessed-box">
+                        <code>na.xylon.gg</code>
+                        <i class="fa-solid fa-copy"></i>
+                    </div>
+                </div>
+
+                <div class="region-card" onclick="copyIP('au.xylon.gg', this)">
+                    <div class="region-header">
+                        <div class="region-tag">
+                            <img src="https://flagcdn.com/w20/au.png" alt="AU">
+                            <span>AUSTRALIA (AU)</span>
+                        </div>
+                    </div>
+                    <div class="ip-recessed-box">
+                        <code>au.xylon.gg</code>
+                        <i class="fa-solid fa-copy"></i>
                     </div>
                 </div>
             </div>
 
-            <div class="experience-item glass-box reveal">
-                <div class="exp-content-wrapper">
-                    <div class="exp-logo">
-                        <img src="assets/icons/GalaxaHub.png" alt="GalaxaHub" draggable="false">
+            <div class="stats-row">
+                <div class="stat-box">
+                    <span class="stat-label">Role</span>
+                    <span class="stat-value">Developer</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Total Users</span>
+                    <span id="stat-total" class="stat-value">--</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Online</span>
+                    <span id="stat-online" class="stat-value">--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <span class="project-section-label" style="margin-top: 60px;">BLOCKBENCH CREATIONS</span>
+    <div class="model-grid">
+        <a href="blocks.html" class="model-card category-card">
+            <div class="model-preview">
+                <div class="category-banner" style="background-image: url('https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/backgrounds/checkered.png');"></div>
+                <img src="assets/icons/blocks.png" class="category-featured-img" alt="Blocks" draggable="false">
+            </div>
+            <div class="model-info">
+                <h3>Blocks</h3>
+                <p>Custom 3D blocks for walls, floors & terrain!</p>
+                <div class="model-tags"><span>16x Texture</span><span>Block</span></div>
+            </div>
+        </a>
+
+        <a href="furniture.html" class="model-card category-card">
+            <div class="model-preview">
+                <div class="category-banner" style="background-image: url('https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/backgrounds/checkered.png');"></div>
+                <img src="assets/gallery/furniture/dyable_brick_overhang.png" class="category-featured-img" alt="Furniture" draggable="false">
+            </div>
+            <div class="model-info">
+                <h3>Furniture</h3>
+                <p>Custom furniture created for servers!</p>
+                <div class="model-tags"><span>16x Texture</span><span>Decorations</span></div>
+            </div>
+        </a>
+
+        <a href="cosmetics.html" class="model-card category-card">
+            <div class="model-preview">
+                <div class="category-banner" style="background-image: url('https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/backgrounds/checkered.png');"></div>
+                <img src="assets/icons/cosmetics.png" class="category-featured-img" alt="cosmetics" draggable="false">
+            </div>
+            <div class="model-info">
+                <h3>Cosmetics</h3>
+                <p>Hats, capes, and armor</p>
+                <div class="model-tags"><span>Explore</span></div>
+            </div>
+        </a>
+
+        <a href="skins.html" class="model-card category-card">
+            <div class="model-preview">
+                <div class="category-banner" style="background-image: url('https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/backgrounds/checkered.png');"></div>
+                <img src="assets/icons/skins.png" class="category-featured-img" alt="Skins" draggable="false">
+            </div>
+            <div class="model-info">
+                <h3>Skins</h3>
+                <p>Player skins & variants</p>
+                <div class="model-tags"><span>Explore</span></div>
+            </div>
+        </a>
+
+        <a href="entities.html" class="model-card category-card">
+            <div class="model-preview">
+                <div class="category-banner" style="background-image: url('https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/backgrounds/checkered.png');"></div>
+                <img src="assets/icons/entities.png" class="category-featured-img" alt="Entities" draggable="false">
+            </div>
+            <div class="model-info">
+                <h3>Entities</h3>
+                <p>Bosses, mobs, and NPCs</p>
+                <div class="model-tags"><span>Explore</span></div>
+            </div>
+        </a>
+
+        <a class="model-card category-card">
+            <div class="model-preview">
+                <div class="category-banner" style="background-image: url('https://raw.githubusercontent.com/CosmicCreator639/portfolio/main/assets/backgrounds/checkered.png');"></div>
+                <img src="assets/icons/coming_soon.png" class="category-featured-img" alt="Coming Soon" draggable="false">
+            </div>
+            <div class="model-info">
+                <h3>Misc</h3>
+                <p>Particles, UI, and more</p>
+                <div class="model-tags"><span>Unfinished</span></div>
+            </div>
+        </a>
+    </div>
+
+    <span class="project-section-label" style="margin-top: 60px;">SERVER HOSTING</span>
+
+    <div class="project-card" style="padding-bottom: 0; overflow: hidden;">
+        <div class="project-banner" style="background: #0ea5e9; position: relative; overflow: hidden; height: 180px;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://www.kinetichosting.com/_next/image?url=%2Fbackgrounds%2Fwebsite-home.webp&w=1200&q=75'); background-size: cover; background-position: center;"></div>
+            <div class="gradient-flow" style="position: absolute; top: 0; left: 0; width: 300%; height: 100%; background: linear-gradient(90deg, rgba(14, 165, 233, 0.8) 0%, rgba(139, 92, 246, 0.4) 50%, rgba(14, 165, 233, 0.8) 100%); animation: flowGradient 8s linear infinite; z-index: 1;"></div>
+            <img src="https://www.kinetichosting.com/logos/logo.svg" class="project-logo-overlay" alt="Kinetic Logo" style="z-index: 2; width: 220px; filter: drop-shadow(0 0 15px rgba(0,0,0,0.6));" draggable="false">
+        </div>
+
+        <div class="project-content">
+            <div class="live-badge" style="background: rgba(14, 165, 233, 0.15); border: 1px solid #0ea5e9; box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);">
+                <div class="pulse-dot" style="background: #0ea5e9; box-shadow: 0 0 10px #0ea5e9; animation: bluePulse 2s infinite;"></div>
+                <span style="color: #0ea5e9; font-weight: 700;">RECOMMENDED</span>
+            </div>
+
+            <h3>Kinetic & Eternal Hosting</h3>
+            <p>I recommend KineticHost for their high-performance hardware and amazing uptime. It's the only host I've used that has good uptime and no problems at all. I've used three 4GB budget servers for about 2-3 months now and they haven't had a single issue. For those in Asia, Eternal Hosting is the best choice for routing and speed.</p>
+
+            <div class="action-row" style="gap: 12px;">
+                <a href="https://kinetichosting.net" target="_blank" class="btn-uplink" style="border-color: #0ea5e9; background: rgba(14, 165, 233, 0.05);">
+                    <i class="fa-solid fa-server" style="color: #0ea5e9;"></i>
+                    <span>VISIT KINETIC</span>
+                </a>
+                <a href="https://eternalhosting.net" target="_blank" class="btn-uplink" style="border-color: #22c55e; background: rgba(34, 197, 94, 0.05);">
+                    <i class="fa-solid fa-globe" style="color: #22c55e;"></i>
+                    <span>VISIT ETERNAL</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="affiliate-tab" style="background: rgba(15, 23, 42, 0.6); border-top: 1px solid rgba(14, 165, 233, 0.2); padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <p style="margin: 0; color: #94a3b8; font-size: 0.85rem; max-width: 450px;">
+                    <strong>Kinetic</strong> is best for <strong>EU/NA</strong>. <strong>Eternal</strong> is best for <strong>Asia</strong>. Use the link to support my friend who is affiliated with them!
+                </p>
+            </div>
+
+            <a href="https://billing.kinetichosting.com/aff.php?aff=1183" target="_blank" class="btn-uplink" style="background: #0ea5e9; color: #fff; border: none; margin: 0; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);">
+                <i class="fa-solid fa-up-right-from-square"></i>
+                <span>SUPPORT FRIEND</span>
+            </a>
+        </div>
+    </div>
+
+    <style>
+        @keyframes bluePulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(14, 165, 233, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+        }
+
+        @keyframes flowGradient {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+
+    <span class="project-section-label" style="margin-top: 60px;">PAST EXPERIENCES</span>
+
+    <div class="experience-container">
+        <div class="experience-item glass-box reveal">
+            <div class="exp-content-wrapper">
+                <div class="exp-logo">
+                    <img src="https://i.ibb.co/qqNrxHb/Main-Logo.png" alt="BoxClash" draggable="false">
+                </div>
+
+                <div class="exp-details">
+                    <div class="exp-header">
+                        <div class="exp-title-group">
+                            <h3 class="exp-title">BOXCLASH NETWORK</h3>
+                            <span class="exp-date">OCT 2024 — NOV 2025</span>
+                        </div>
+
+                        <div class="exp-activity-group">
+                            <span class="bubble-tag role">NETWORK OWNER</span>
+                            <span class="bubble-tag status active">
+                                    <div class="pulse-dot-mini"></div>
+                                    ACTIVE
+                                </span>
+                        </div>
                     </div>
-                    <div class="exp-details">
-                        <div class="exp-header">
-                            <div class="exp-title-group">
-                                <h3 class="exp-title">GALAXAHUB</h3>
-                                <span class="exp-date">JUL 2024 — JAN 2025</span>
-                            </div>
 
-                            <div class="exp-activity-group">
-                                <span class="bubble-tag role">OWNER</span>
-                                <span class="bubble-tag status inactive">
-                            <div class="pulse-dot-mini"></div>
-                            INACTIVE
-                        </span>
-                            </div>
-                        </div>
+                    <p data-i18n="boxclash_desc" class="exp-description">
+                        Previously worked with Tro_o, and created the <b>BoxClash Network</b>. I handled everything from plugins to models, and unique features all the time, to keep our 1,200+ unique players coming back. Once a unique ChunkSMP server to a BoxSMP server with plenty of features for everyone to enjoy!
+                    </p>
 
-                        <p class="exp-description">
-                            GalaxaHub was where it all started. I built a unique Lifesteal experience for the players, packed with custom models and textures. It was a <b>massive</b> learning curve in server management and community growth that ran strong for around a year.
-                        </p>
-
-                        <div class="exp-stats-row">
-                            <div class="mini-stat"><i class="fab fa-discord"></i> 120+</div>
-                            <div class="mini-stat"><i class="fa-solid fa-users"></i> 650+ Uniques</div>
-                        </div>
+                    <div class="exp-stats-row">
+                        <div class="mini-stat"><i class="fab fa-discord"></i> 250+</div>
+                        <div class="mini-stat"><i class="fa-solid fa-users"></i> 1.2k+ Uniques</div>
                     </div>
                 </div>
             </div>
         </div>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p>&copy; <span id="copyright-year"></span> K1NG_DUCKY. All rights reserved.</p>
+        <div class="experience-item glass-box reveal">
+            <div class="exp-content-wrapper">
+                <div class="exp-logo">
+                    <img src="assets/icons/GalaxaHub.png" alt="GalaxaHub" draggable="false">
+                </div>
+                <div class="exp-details">
+                    <div class="exp-header">
+                        <div class="exp-title-group">
+                            <h3 class="exp-title">GALAXAHUB</h3>
+                            <span class="exp-date">JUL 2024 — JAN 2025</span>
+                        </div>
 
-            <p class="footer-sub">Last updated: <span id="last-update">Loading...</span></p>
+                        <div class="exp-activity-group">
+                            <span class="bubble-tag role">OWNER</span>
+                            <span class="bubble-tag status inactive">
+                                    <div class="pulse-dot-mini"></div>
+                                    INACTIVE
+                                </span>
+                        </div>
+                    </div>
+
+                    <p class="exp-description">
+                        GalaxaHub was where it all started. I built a unique Lifesteal experience for the players, packed with custom models and textures. It was a <b>massive</b> learning curve in server management and community growth that ran strong for around a year.
+                    </p>
+
+                    <div class="exp-stats-row">
+                        <div class="mini-stat"><i class="fab fa-discord"></i> 120+</div>
+                        <div class="mini-stat"><i class="fa-solid fa-users"></i> 650+ Uniques</div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
+</div> <footer class="site-footer">
+    <div class="footer-content">
+        <p>&copy; <span id="copyright-year"></span> K1NG_DUCKY. All rights reserved.</p>
 
-    <script src="script.js"></script>
+        <p class="footer-sub">Last updated: <span id="last-update">Loading...</span></p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
